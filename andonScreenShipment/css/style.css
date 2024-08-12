@@ -1,0 +1,283 @@
+/* Enter your custom styles here */
+
+.xsmallText {
+    font-size: 25px !important;
+    color: #fff;
+    font-weight: bold !important;
+}
+
+.xsmallTextRed {
+    font-size: 19px !important;
+    color: #b00  !important;
+    font-weight: bold !important;
+    
+}
+.xsmallTextColor {
+    font-size: 19px !important;
+    color: #005792  !important;
+    font-weight: bold !important;
+    
+}
+.smallText {
+    font-size: 1.14rem;
+    color: #1c1a1a;
+    font-weight: bold;
+}
+
+.mediumText {
+    font-size: 15px !important;
+    color: #000000 !important;
+    /*font-weight: bold;*/
+    padding-top: 3%;
+}
+
+.largeText {
+    font-size: 40px;
+    color: #fff;
+}
+
+.xlargeText {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.sapMPageEnableScrolling {
+    background: #fff;
+}
+
+
+.sapMFlexItem {
+    padding-left: 0.5%;
+    padding-right: 0.2%;
+    padding-top: 0.2%;
+}
+
+
+.sapMPIText {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+.sapMPage, .sapMPage>section { 
+    background: #fafafa;
+}
+.sapFSPActionBar {
+   
+    background: #fafafa;
+    
+}
+
+
+/*.sapMLIB{
+    background: #818194 ;
+}
+
+.sapMListTblCell {
+    background: #818194 !important;
+}
+*/
+
+.sapUiTableHeaderDataCell .sapMText, .sapMColumnHeader .sapMText {
+   
+    color: #fff;
+}
+.sapMSLITitle, .sapMSLITitleOnly {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.colorRed {
+    color: #b00 ;
+}
+
+.colorGreen {
+    color: #00FF00;
+}
+
+.colorYellow {
+    color: #ffe700;
+}
+
+.colorWhite {
+    color: #fafafa;
+}
+
+.colorBlue {
+    color: #0000FF;
+}
+.colorOrange {
+    color: #ffe700;
+}
+
+.footercss {
+    padding-bottom: 55%;
+}
+
+
+.sapSuiteRMC.sapSuiteRMCLookL .sapSuiteRMCFont {
+    font-size: 2.50rem !important;
+    font-weight: bold;
+}
+
+.sapSuiteRMC .sapSuiteRMCVerticalAlignmentContainer {
+    max-height: 9.1rem !important;
+}
+
+.sapSuiteRMCInnerContainer {
+    width: 158px;
+}
+
+
+
+.sapTntInfoLabel {
+    display: block !important;
+    height: 3rem !important;
+    line-height: unset !important;
+}
+
+
+
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+}
+
+.backgroundColor8 .sapTntInfoLabelInner {
+    color: #fff;
+}
+
+.sapTntInfoLabel .sapTntInfoLabelInner {
+    font-size: 2.50rem !important;
+
+}
+
+.sapMLIBShowSeparator>td {
+    border-top: 1px solid #4d6377;
+}
+
+.backgroundRed {
+    
+    background : #FF0000 
+}
+
+.red-color { 
+	color : #FF0000 ; 
+}
+
+.backgroundGreen {
+    
+    background : #cbf078
+}
+
+.green-color { 
+	color : #cbf078; 
+}
+
+.backgroundYellow {
+   
+    background : #f8f398;
+}
+
+.yellow-color { 
+	color : #f8f398; 
+}
+
+.backgroundBlue {
+    
+    background: #5757fa;
+}
+
+.blue-color { 
+	 color : #5353f3; 
+}
+
+.backgroundOrange {
+    
+    background : #ffb200;
+}
+.orange-color { 
+	color : #ffb200; 
+}
+.backgroundPink {
+    
+    background : #f64b3c;
+}
+.pink-color { 
+	color : #f64b3c; 
+}
+
+.backgroundDefault {
+    background-color: #e3e3e3;
+    color: #e3e3e3;
+}
+
+.backgroundGrey {
+    
+    color: #575454;
+}
+
+.backgroundWhite {
+    
+    color: #fafafa;
+}
+
+
+.sapMIBar-CTX.sapMFooter-CTX .sapMLabel {
+
+    font-size: 20px;
+    color: #fff;
+    /*font-weight: bold;*/
+    text-shadow: 0 0 0 #000;
+    
+}
+.backgroundColor3 {
+    background-color:#b00 !important;
+}
+
+.sapMTextMaxWidth {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+ .sapMTableTHead   {
+    background: #6e6ebc!important ;
+    background-color: #6e6ebc!important;
+}
+
+  
+  tr[aria-rowindex="3" ] ,tr[aria-rowindex="5" ],tr[aria-rowindex="7" ] ,tr[aria-rowindex="9" ]{
+    background:  #ffffffef!important;
+  }
+
+  tr[aria-rowindex="2"], tr[aria-rowindex="4"] , tr[aria-rowindex="6" ] ,tr[aria-rowindex="8"],tr[aria-rowindex="10"]{
+    background: #dbcbcbef!important;
+  }
+  
+
+  .sapMListTblCell.cellBorderRight {
+	border-right: 1px solid lightgray;
+}
+
+.sapMListTblCell.cellBorderLeft {
+	border-left: 1px solid lightgray;
+}
+
+
+
+table, th, td {
+    border: 1px groove rgb(66, 65, 65);
+  }
+
+  .sapMPageFooter {
+    height: 2.5rem !important;
+    background-color: #fafafa !important;
+}
+
+
+html.sap-desktop .sapContrast.sapMIBar.sapMFooter-CTX {
+    background-color: #fafafa;
+    border-top: 1px solid #475b6d;
+}

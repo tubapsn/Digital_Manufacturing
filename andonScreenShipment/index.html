@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8" />
+  <title>Loading</title>
+  <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m"
+    data-sap-ui-theme="sap_belize" data-sap-ui-compatVersion="edge" data-sap-ui-resourceroots='{
+        "andonScreen": "",
+        "common": "../COMMON/"        
+      }'></script>
+  <!-- common klasorunun yolunu alırken düzenlemek gerekebilir -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script>
+    var Glb_PC_ID = new URLSearchParams(window.location.search)
+    var Glb_GROUP_ID
+    if (Glb_PC_ID.get("PC_ID") == null || Glb_PC_ID.get("PC_ID") == undefined) {
+
+      Glb_GROUP_ID = 1
+
+    }
+    else{
+      Glb_GROUP_ID = Glb_PC_ID.get("PC_ID")
+
+    }
+    
+
+    localStorage.setItem("PC_ID", Glb_GROUP_ID)
+    sap.ui.getCore().attachInit(function () {
+      app: new sap.ui.core.ComponentContainer({
+        height: "100%",
+        name: "andonScreen",
+      }).placeAt("content");
+    });
+
+  </script>
+</head>
+
+<body class="sapUiBody" id="content"></body>
+
+</html>

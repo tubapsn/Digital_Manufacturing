@@ -1,0 +1,100 @@
+<mvc:View
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:tnt="sap.tnt"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  height="100%"
+  width="100%"
+  controllerName="andonScreen.controller.Main"
+>
+  <App id="idMainApp">
+    <pages>
+      <Page title="{i18n>title}" showHeader="false">
+        <content>
+          <f:SidePanel id="mySidePanel" toggle="onToggle">
+            <f:mainContent>
+              <VBox class="sapUiSmallMargin">
+              <!--  <ComboBox
+                  id="idAndonComboBox"
+                  items="{path: '/'}"
+                  selectionChange="handleSelectionChange"
+                >
+                  <core:Item key="{ID}" text="{NAME}" />
+                </ComboBox>
+              <Text text="Overall Equipment Effectiveness % (OEE)"  hAlign="Center"/>
+              -->
+                
+                <tnt:InfoLabel text="TESLİMAT PLANLARI" renderMode="Narrow" colorScheme="3" class="xsmallText"/>
+                <Table id="idAndonTable" inset="false" items="{path: '/'}">
+                  <columns class="headerColor">
+                    <Column  width="9%" hAlign="Left" vAlign="Middle" >
+                      <Text text="TESLİMAT" class="xsmallTextRed" />
+                    </Column>
+                    <Column width="9%" hAlign="Left" vAlign="Middle">
+                      <Text text="TS. ALAN" class="xsmallTextRed" />
+                    </Column>
+                    <Column width="11%" hAlign="Left" vAlign="Middle">
+                      <Text text="TS. AL. TANIM" class="xsmallTextRed"  wrapping="false"/>
+                    </Column>
+                    <Column width="8%" hAlign="Left" vAlign="Middle">
+                      <Text text="KAPI" class="xsmallTextRed" />
+                    </Column>
+                    <Column width="9%" hAlign="Left" vAlign="Middle">
+                      <Text text="SEVK TARIH" class="xsmallTextRed" />
+                    </Column>
+                    <Column width="9%" hAlign="Left" vAlign="Middle">
+                      <Text text="SEVK SAAT"  class="xsmallTextRed"/>
+                    </Column>
+                   <Column width="9%" hAlign="Left" vAlign="Middle">
+                      <Text text="HARCİ IRS."  class="xsmallTextRed"/>
+                    </Column>
+                    <Column width="15%" hAlign="Left" vAlign="Middle">
+                      <Text text="REFERANS"  class="xsmallTextRed"/>
+                    </Column>
+                     <Column width="10%" hAlign="Left" vAlign="Middle">
+                      <Text text="DURUM"  class="xsmallTextRed"/>
+                    </Column>
+                     <Column width="11%" hAlign="Left" vAlign="Middle">
+                      <Text text="NOT"  class="xsmallTextRed"/>
+                    </Column>
+                  </columns>
+                  <items>
+                    <ColumnListItem>
+                      <customData>
+                        <core:CustomData key="mydata" value="{1}" writeToDom="true"></core:CustomData>
+                      </customData>
+                      <cells>
+                        <Text text="{VBELN}"  class="smallText"/>
+                        <Text text="{KUNNR}"  class="smallText"/>
+                        <Text text="{KUN_NAME1}" class="smallText" wrapping="false" />
+                        <Text text="{ABLAD}" class="smallText" />
+                        <Text text="{TDDAT}" class="smallText"/>
+                        <Text text="{LFUHR}" class="smallText"/>
+                        <Text text="{LIFEX}" class="smallText"/>
+                        <Text text="{XBLNR}" class="smallText" wrapping="false" />
+                        <Text text="{SHIPMENT_STS}" class="smallText" />
+                        <Text text="{SHIP_DESC}" class="smallText"/>
+                      </cells>
+                    </ColumnListItem>
+                  </items>
+                </Table>
+              </VBox>
+            </f:mainContent>
+          </f:SidePanel>
+        </content>
+
+        <footer >
+          <OverflowToolbar>
+            <ToolbarSpacer/>
+            <HBox class="sapUiSmallMargin">
+            <Image src="http://192.168.0.245:50000/XMII/CM/MII/andonScreenShipment/images/kh_logo.jpg" width="30px" />
+            <Label text="KÜÇÜKOĞLU HOLDİNG " class="mediumText" />
+            </HBox>
+            <ToolbarSpacer/>
+          </OverflowToolbar>
+        </footer>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

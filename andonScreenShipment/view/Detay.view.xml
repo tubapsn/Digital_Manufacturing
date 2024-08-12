@@ -1,0 +1,139 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:mc="sap.suite.ui.microchart"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    height="100%" controllerName="andonScreen.controller.Main">
+    <App id="idMainApp">
+        <pages>
+            <Page title="{i18n>title}" showHeader="false">
+                <content>
+                    <VBox class="sapUiSmallMargin" justifyContent="Center">
+                        <f:GridList items="{ path: '/' }">
+                            <f:customLayout>
+                                <grid:GridResponsiveLayout>
+                                    <grid:layoutS>
+                                        <grid:GridSettings
+                                            gridTemplateColumns="repeat(auto-fit, 30rem)"
+                                            gridGap="0.50rem 0.50rem">
+                                        </grid:GridSettings>
+                                    </grid:layoutS>
+                                    <grid:layoutM>
+                                        <grid:GridSettings
+                                            gridTemplateColumns="repeat(auto-fit, 30rem)"
+                                            gridGap="0.50rem 0.50rem">
+                                        </grid:GridSettings>
+                                    </grid:layoutM>
+                                    <grid:layoutL>
+                                        <grid:GridSettings
+                                            gridTemplateColumns="repeat(auto-fit, 30rem)"
+                                            gridGap="0.50rem 0.50rem">
+                                        </grid:GridSettings>
+                                    </grid:layoutL>
+                                    <grid:layoutXL>
+                                        <grid:GridSettings
+                                            gridTemplateColumns="repeat(auto-fit, 30rem)"
+                                            gridGap="0.50rem 0.50rem">	
+                                        </grid:GridSettings>
+                                    </grid:layoutXL>
+                                </grid:GridResponsiveLayout>
+                            </f:customLayout>
+                            <f:GridListItem>
+                                <VBox height="100%">
+                                    <VBox class="sapUiSmallMargin">
+                                        <layoutData>
+                                            <FlexItemData growFactor="1" shrinkFactor="0" />
+                                        </layoutData>
+                                        <VBox alignItems="Center">
+                                            <Label class="mediumText" text="{WC}"></Label>
+                                        </VBox>
+                                        <VBox alignItems="Center">
+                                            <Label class="mediumText" text="Product Quantity"></Label>
+                                        </VBox>
+                                        <ProgressIndicator
+                                            class="sapUiSmallMarginBottom"
+                                            percentValue="{PERCENT}"
+                                            displayValue="{REAL_QTY} / {TARGET_QTY}"
+                                            state="Success" />
+                                        <HBox width="100%">
+                                            <VBox alignItems="Start" width="50%">
+                                                <Label class="smallText" text="Real: {REAL_QTY}"></Label>
+                                            </VBox>
+                                            <VBox alignItems="End" width="50%">
+                                                <Label class="smallText"
+                                                    text="Target: {TARGET_QTY}"></Label>
+                                            </VBox>
+                                        </HBox>
+                                        <VBox alignItems="Center">
+                                            <Label class="largeText" text="OEE"></Label>
+                                        </VBox>
+                                        <VBox alignItems="Center">
+                                            <Label class="largeText" text="{SHIFT_OEE}%"></Label>
+                                        </VBox>
+                                        <HBox>
+                                            <VBox alignItems="Center">
+                                                <mc:RadialMicroChart  
+                                                    size="M"
+                                                    percentage="{SHIFT_QUALITY}"
+                                                    width="10%"
+                                                    valueColor="{SHIFT_QUA_COLOR}"></mc:RadialMicroChart>
+                                                <Label class="xsmallText" text="Quality"></Label>
+                                            </VBox>
+                                            <VBox alignItems="Center">
+                                                <mc:RadialMicroChart   
+                                                    size="M"
+                                                    percentage="{SHIFT_PERFORMANCE}"
+                                                    width="10%"
+                                                    valueColor="{SHIFT_PERF_COLOR}"></mc:RadialMicroChart>
+                                                <Label class="xsmallText" text="Performance"></Label>
+                                            </VBox>
+                                            <VBox alignItems="Center">
+                                                <mc:RadialMicroChart 
+                                                    size="M"
+                                                    percentage="{SHIFT_AVAILABLE}"
+                                                    width="10%"
+                                                    valueColor="{SHIFT_AVAI_COLOR}"></mc:RadialMicroChart>
+                                                <Label class="xsmallText" text="Availability"></Label>
+                                            </VBox>
+                                        </HBox>
+                                        <VBox alignItems="Center">
+                                            <Label class="largeText" text="OEE"></Label>
+                                        </VBox>
+                                        <HBox>
+                                            <VBox alignItems="Center">
+                                                <mc:RadialMicroChart 
+                                                    size="M"
+                                                    percentage="{SHIFT_OEE}"
+                                                    width="10%"
+                                                    valueColor="{SHIFT_COLOR}"></mc:RadialMicroChart>
+                                                <Label class="xsmallText" text="Shift"></Label>
+                                            </VBox>
+                                            <VBox alignItems="Center">
+                                                <mc:RadialMicroChart 
+                                                    size="M"
+                                                    percentage="{DAY_OEE}"
+                                                    width="10%"
+                                                    valueColor="{DAY_COLOR}"></mc:RadialMicroChart>
+                                                <Label class="xsmallText" text="Day"></Label>
+                                            </VBox>
+                                            <VBox alignItems="Center">
+                                                <mc:RadialMicroChart  
+                                                    size="M"
+                                                    percentage="{WEEK_OEE}"
+                                                    width="10%"
+                                                    valueColor="{WEEK_COLOR}"></mc:RadialMicroChart>
+                                                <Label class="xsmallText" text="Week"></Label>
+                                            </VBox>
+                                        </HBox>
+                                    </VBox>
+                                </VBox>
+                            </f:GridListItem>
+                        </f:GridList>
+                    </VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
