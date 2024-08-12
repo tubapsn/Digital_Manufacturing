@@ -1,0 +1,23 @@
+{
+    "systems": [{
+"name": "AKT-MII",
+"host": "192.168.9.26",
+"port": 50000,
+"username": "Administrator",
+"password": "Toksan2023!",
+"isMain": true
+
+
+    }],
+    "removeFromLocalPath": [
+        "webapp"
+    ],
+    "remotePath": "MII",
+    "downloadOnOpen": false,
+    "uploadOnSave": false,
+    "ignore": [
+       
+    ],
+    "useRootConfig": false,
+    "rootConfig": "../"
+}
