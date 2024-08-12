@@ -1,0 +1,64 @@
+<mvc:View xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:mc="sap.suite.ui.microchart"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:card="sap.f.cards"
+  xmlns:tnt="sap.tnt"
+  xmlns:t="sap.ui.table" height="100%" controllerName="DASHBOARD.controller.Main">
+  <App id="idMainApp">
+    <pages>
+      <Page title="{i18n>title}" showHeader="false">
+        <content>
+          <f:SidePanel id="mySidePanel" toggle="onToggle">
+
+
+            <f:mainContent>
+              <VBox class="sapUiSmallMargin">
+                <Image src="http://192.168.9.26:50000/XMII/CM/MII/DASHBOARD/images/KH.PNG" width="300px" />
+                
+                <!-- <Button text="OPERATOR EKRANI" press="onShowPress" icon="sap-icon://begin" />-->
+              </VBox>
+
+              <VBox class="sapUiSmallMargin">
+                <HBox id="mainBox" class="sapUiSmallMargin">
+
+                  <tnt:InfoLabel text="{selectedGrp>/SELECTEDCOMPANY} - {selectedGrp>/TEXT}" renderMode="Narrow" colorScheme="5" />
+                </HBox>
+                <HBox id="mainBox1" class="sapUiSmallMargin">
+
+
+                </HBox>
+                <HBox id="mainBox2" class="sapUiSmallMargin">
+
+
+                </HBox>
+                <HBox id="mainBox3" class="sapUiSmallMargin">
+
+
+                </HBox>
+              </VBox>
+
+            </f:mainContent>
+
+
+            <f:items>
+              <f:SidePanelItem icon="sap-icon://building" text="Şirket Seçin">
+                <VBox width="100%">
+                  <List id="ShortProductList" headerText="GRUP ŞİRKETLERİ" items="{
+											path: 'CGrp>/'
+										}">
+                    <items>
+                      <StandardListItem title="{CGrp>COMPANY}" description="{CGrp>TEXT}" icon="sap-icon://factory" type="Active" press="handleSelectionChange" />
+                    </items>
+                  </List>
+                </VBox>
+              </f:SidePanelItem>
+            </f:items>
+          </f:SidePanel>
+        </content>
+      </Page>
+
+    </pages>
+  </App>
+</mvc:View>
