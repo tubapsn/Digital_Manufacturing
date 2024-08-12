@@ -2,3 +2,5 @@
 
 
 Merhabalar 
+
+X şireketi için yazılmış mes programıdır. 
