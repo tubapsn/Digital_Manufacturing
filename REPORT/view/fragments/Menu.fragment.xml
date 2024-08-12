@@ -1,0 +1,65 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+<Dialog state="Warning" id="fragmentScraptList" title="Sap'ye Gönderilecek Aktiviteler" draggable="true" contentWidth="50%">
+
+<VBox class="sapUiTinyMargin">
+
+
+    <t:Table  id="SelectedListTable" selectionMode="None"
+    rows="{path: '/'}" visibleRowCount="10" rowsUpdated="oUpdate">
+    <t:extension>
+      <OverflowToolbar style="Clear">
+        <Title id="titleSelectedList" text="" />
+        <ToolbarSpacer />
+
+      </OverflowToolbar>
+    </t:extension>
+
+    <t:columns>
+      <t:Column>
+        <Label text="AĞ PLANI" />
+        <t:template>
+          <Text text="{NETWORK}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="OPERASYON" />
+        <t:template>
+          <Text text="{OPERATION}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="İŞ MERKEZİ" />
+        <t:template>
+          <Text text="{WORK_CENTER}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="BAŞLANGIÇ TARİHİ" />
+        <t:template>
+          <Text text="{START_TIME}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="BİTİŞ TARİHİ" />
+        <t:template>
+          <Text text="{END_TIME}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="AKTİVİTE SÜRESİ" />
+        <t:template>
+          <Text text="{UPTIME}" wrapping="false" />
+        </t:template>
+      </t:Column>
+   
+
+    </t:columns>
+
+  </t:Table>
+</VBox>
+  <buttons>
+    <Button width="150px" icon="sap-icon://sys-enter" press="getSelectedIndices" text="Kaydet" type="Accept"/>
+    <Button width="150px" icon="sap-icon://sys-cancel" press="onCancelButton" text="Kapat" type="Reject"/>
+    </buttons>
+</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8" />
+  <title>Loading</title>
+  <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m"
+    data-sap-ui-theme="sap_belize" data-sap-ui-compatVersion="edge" data-sap-ui-resourceroots='{
+        "REPORT": "",
+        "common": "../COMMON/"        
+      }'></script>
+  <!-- common klasorunun yolunu alırken düzenlemek gerekebilir -->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script>
+      
+
+      sap.ui.getCore().attachInit(function () {
+        app: new sap.ui.core.ComponentContainer({
+          height: "100%",
+          name: "REPORT",
+        }).placeAt("content");
+      });
+    
+  </script>
+</head>
+
+<body class="sapUiBody" id="content"></body>
+
+</html>

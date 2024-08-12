@@ -1,0 +1,75 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:t="sap.ui.table">
+<Dialog state="Warning" id="fragmentScraptList" title="Sap'ye Gönderilecek Aktiviteler" draggable="true" contentWidth="50%">
+
+<VBox class="sapUiTinyMargin">
+    <Label 
+    id="recordNo"
+        width= "210px"
+        placeholder= "Sicil No"
+        value= ""
+    />
+    <Button  type="Emphasized" 
+    width= "200px"
+    text= "Kaydet"
+    press= ".onDownTimeSave"
+    icon= "sap-icon://action"
+    />
+    <t:Table  id="SelectedListTable" selectionMode="None"
+    rows="{path: '/'}" visibleRowCount="10" rowsUpdated="oUpdate">
+    <t:extension>
+      <OverflowToolbar style="Clear">
+        <Title id="titleSelectedList" text="" />
+        <ToolbarSpacer />
+
+      </OverflowToolbar>
+    </t:extension>
+
+    <t:columns>
+      <t:Column>
+        <Label text="BAŞLANGIÇ TARİHİ" />
+        <t:template>
+          <Text text="{START_TIME}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="BİTİŞ TARİHİ" />
+        <t:template>
+          <Text text="{END_TIME}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="NEDEN" />
+        <t:template>
+          <Text text="{REASON}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="TÜR" />
+        <t:template>
+          <Text text="{PLANNEDTEXT}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="DELETE" />
+        <t:template>
+          <Text text="{DELETE}" wrapping="false" />
+        </t:template>
+      </t:Column>
+      <t:Column>
+        <Label text="GUID" />
+        <t:template>
+          <Text text="{GUID}" wrapping="false" />
+        </t:template>
+      </t:Column>
+   
+
+    </t:columns>
+
+  </t:Table>
+</VBox>
+  <buttons>
+    <Button width="150px" icon="sap-icon://sys-enter" press="onCancelButton" text="Kapat" type="Accept"/>
+    <Button width="150px" icon="sap-icon://sys-cancel" press="onCancelButton" text="İptal" type="Reject"/>
+    </buttons>
+</Dialog>
+</core:FragmentDefinition>

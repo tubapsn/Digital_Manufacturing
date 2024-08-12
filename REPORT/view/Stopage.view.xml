@@ -1,0 +1,222 @@
+<mvc:View controllerName="REPORT.controller.Stopage"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:t="sap.ui.table"
+  xmlns:viz="sap.viz.ui5.controls"
+  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+  xmlns:viz.data="sap.viz.ui5.data"
+  xmlns:tnt="sap.tnt" displayBlock="true" height="100%" busyIndicatorDelay="0">
+  <Page title="{i18n>title}" showHeader="false" class="sapUiContentPadding">
+    <content>
+      <VBox>
+        <HBox class="sapUiSmallMarginTop">
+          <Label text="Başlangıç Tarihi" labelFor="DP1" width="200px" />
+          <Label text="Bitiş Tarihi" labelFor="DP2" width="200px" />
+        </HBox>
+        <HBox>
+          <DatePicker id="StartDateStopage" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"
+            width="200px" placeholder="Başlangıç Tarihi" change="handleChange"
+            class="sapUiSmallMarginBottom" />
+          <DatePicker id="EndDateStopage" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" width="200px"
+            placeholder="Bitiş Tarihi" change="handleChange" class="sapUiSmallMarginBottom" />
+          <ComboBox id="idShiftStopageComboBox" items="{path: '/'}" selectionChange="handleSelectionChange">
+            <core:Item key="{ID}" text="{NAME}" />
+          </ComboBox>
+          <ComboBox
+          id="idOperationComboBox"
+          items="{path: '/'}"
+          selectionChange="handleSelectionChange"
+        >
+          <core:Item key="{OPERATION}" text="{OPERATION}-{NAME}" />
+        </ComboBox>
+          <Button text="GETİR" press="onShowPress" type="Emphasized" />
+        </HBox>
+
+        <t:Table class="sapUiSmallMarginTop" id="StopageListTable" selectionMode="MultiToggle"
+          enableCellFilter="{ui>/cellFilterOn}" rows="{path: '/'}" visibleRowCount="10"
+          rowsUpdated="oUpdate" rowSelectionChange="onSelectionChange">
+
+          <t:extension>
+            <OverflowToolbar style="Clear">
+              <Title id="titleNetwork" text="Ağ Planları" />
+              <ToolbarSpacer />
+              <Button  id= "StopageListExcelButton" icon="sap-icon://excel-attachment"  text="Excele Aktar"  tooltip="Excele Aktar.." press="onExport"/>
+              <!--<Button/> -->
+            </OverflowToolbar>
+          </t:extension>
+          <t:columns>
+            <t:Column filterProperty="START_TIME" filterType="sap.ui.model.type.Date" width="11rem" sortProperty="START_TIME">
+              <Label text="BAŞLANGIÇ TARİHİ" />
+              <t:template>
+                <Text text="{START_TIME}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="END_TIME" filterType="sap.ui.model.type.Date" width="11rem" sortProperty="END_TIME">
+              <Label text="BİTİŞ TARİHİ" />
+              <t:template>
+                <Text text="{END_TIME}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="NETWORK" width="8rem" sortProperty="NETWORK">
+              <Label text="AĞ PLANI" />
+              <t:template>
+                <Text text="{NETWORK}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="OPERATION" width="7rem" sortProperty="OPERATION">
+              <Label text="OPERASYON" />
+              <t:template>
+                <Text text="{OPERATION}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="WORK_CENTER" width="7rem" sortProperty="WORK_CENTER">
+              <Label text="İŞ YERİ" />
+              <t:template>
+                <Text text="{WORK_CENTER}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="STATU" filterType="sap.ui.model.type.String" width="7rem" sortProperty="STATU">
+              <Label text="STATU" wrapping="true" />
+              <t:template>
+                <Text text="{STATU}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="OPERATION_DESCRIPTION" width="7rem" sortProperty="OPERATION_DESCRIPTION">
+              <Label text="OPERASYON AÇIKLAMASI" wrapping="true" />
+              <t:template>
+                <Text text="{OPERATION_DESCRIPTION}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="SHORT_TEXT" width="23rem" sortProperty="SHORT_TEXT">
+              <Label text="AÇIKLAMA" />
+              <t:template>
+                <Text text="{SHORT_TEXT}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="SUB_CATEGORY" width="6rem" sortProperty="SUB_CATEGORY">
+              <Label text="ALT KATEGORİ" wrapping="true" />
+              <t:template>
+                <Text text="{SUB_CATEGORY}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column width="7rem" sortProperty="SUB_CATEGORY_DESCRIPTION">
+              <Label text="ALT KATEGORİ AÇIKLAMASI" wrapping="true" />
+              <t:template>
+                <Text text="{SUB_CATEGORY_DESCRIPTION}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="OPER_NO" filterType="sap.ui.model.type.Integer" width="7rem" sortProperty="OPER_NO">
+              <Label text="OPERATÖR NO" wrapping="true" />
+              <t:template>
+                <Text text="{OPER_NO}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column width="12rem" sortProperty="OPER_NAME">
+              <Label text="OPERATÖR ADI" wrapping="true" />
+              <t:template>
+                <Text text="{OPER_NAME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="ACTIVITY_TIME" filterType="sap.ui.model.type.Integer" width="7rem" sortProperty="ACTIVITY_TIME">
+              <Label text="AKTİVİTE SÜRESİ(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{ACTIVITY_TIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="UNPLANNED_TIME" filterType="sap.ui.model.type.Integer" width="6rem" sortProperty="UNPLANNED_TIME">
+              <Label text="PLANSIZ DURUŞ(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{UNPLANNED_TIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="PLANNED_TIME" filterType="sap.ui.model.type.Integer" width="6rem" sortProperty="PLANNED_TIME">
+              <Label text="PLANLI DURUŞ(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{PLANNED_TIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="UPTIME" filterType="sap.ui.model.type.Integer" width="7rem" sortProperty="UPTIME">
+              <Label text="NET ÇALIŞMA(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{UPTIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="PERFORMANCE" filterType="sap.ui.model.type.Integer" width="7rem" sortProperty="PERFORMANCE">
+              <Label text="PERFORMANS" wrapping="true" />
+              <t:template>
+                <Text text="{PERFORMANCE}" wrapping="true" />
+              </t:template>
+            </t:Column>
+
+
+          
+
+
+          </t:columns>
+
+          <t:footer>
+            <OverflowToolbar id="infobar">
+        
+
+            </OverflowToolbar>
+          </t:footer>
+        </t:Table>
+
+        <HBox class="sapUiSmallMarginTop" width="100%">
+         
+
+          <viz:Popover id="idPopOverStopage"></viz:Popover>
+          <viz:VizFrame id="idVizFrameStopage" uiConfig="{applicationSet:'fiori'}" vizType='pie' >
+            <viz:dataset>
+              <viz.data:FlattenedDataset data="{/}">
+                <viz.data:dimensions>
+                  <viz.data:DimensionDefinition name="Duruş Turu" value="{DownTime}" />
+                </viz.data:dimensions>
+                <viz.data:measures>
+                  <viz.data:MeasureDefinition name="Oran" value="{Percent}" />
+                </viz.data:measures>
+              </viz.data:FlattenedDataset>
+            </viz:dataset>
+
+            <viz:feeds>
+              <viz.feeds:FeedItem uid="size" type="Measure" values="Oran" />
+              <viz.feeds:FeedItem uid="color" type="Dimension" values="Duruş Turu" />
+            </viz:feeds>
+          </viz:VizFrame>
+
+          <viz:Popover id="idPopOverStacked"   ></viz:Popover>
+          <viz:VizFrame id="idVizFrameStacked" uiConfig="{applicationSet:'fiori'}" 
+             vizType='stacked_column'>
+              <viz:dataset>
+                  <viz.data:FlattenedDataset data="{/}">
+                      <viz.data:dimensions>
+                          <viz.data:DimensionDefinition name="NETWORK"
+                              value="{NETWORK}" />
+                      </viz.data:dimensions>
+                      <viz.data:measures>
+                          <viz.data:MeasureDefinition name="UPTIME"
+                              value="{UPTIME}" />
+                          <viz.data:MeasureDefinition name="PLANNED_TIME"
+                              value="{PLANNED_TIME}" />
+                          <viz.data:MeasureDefinition name="UNPLANNED_TIME"
+                              value="{UNPLANNED_TIME}" />
+                      </viz.data:measures>
+                  </viz.data:FlattenedDataset>
+              </viz:dataset>
+
+              <viz:feeds>
+                  <viz.feeds:FeedItem uid="valueAxis" type="Measure"
+                      values="UPTIME,PLANNED_TIME,UNPLANNED_TIME" />
+                  <viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+                      values="NETWORK" />
+              </viz:feeds>
+          </viz:VizFrame>
+        </HBox>
+
+      </VBox>
+    </content>
+  </Page>
+
+
+</mvc:View>

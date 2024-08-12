@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+  xmlns:t="sap.ui.table" xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+  <Dialog state="Warning" id="fragmentStopageAdd" title="Duruş Ekleme"
+    draggable="true" contentWidth="50%">
+    <VBox height="400px" width="450px" class="sapUiTinyMarginBegin">
+
+
+      <HBox>
+        <DateTimePicker id="InptStpStartDate" valueFormat="yyyy-MM-dd HH:mm"
+          displayFormat="yyyy-MM-dd HH:mm" width="200px" placeholder="Başlangıç Tarihi"
+          change="handleChange" class="sapUiSmallMarginBottom" />
+      </HBox>
+      <HBox>
+        <DateTimePicker id="InptStpEndDate" valueFormat="yyyy-MM-dd HH:mm"
+          displayFormat="yyyy-MM-dd HH:mm" width="200px" placeholder="Bitiş Tarihi"
+          change="handleChange" class="sapUiSmallMarginBottom" />
+      </HBox>
+      <HBox>
+
+        <l:VerticalLayout>
+
+          <ComboBox
+            id="idComboDownReason"
+            showSecondaryValues="true"
+            filterSecondaryValues="true"
+            value="{/comboBoxValue}"
+            selectedKey="{/comboBoxKey}"
+            items="{path: '/'}">
+            <core:Item key="{ID}"
+              text="{DESCRIPTION}" />
+          </ComboBox>
+
+
+          <Label text="Duruş Nedeni" labelFor="idComboBox" />
+          <Text text=" " />
+        </l:VerticalLayout>
+
+
+      </HBox>
+
+      
+    </VBox>
+
+    <buttons>
+      <Button width="150px" icon="sap-icon://sys-enter" press="AddStopage" text="Kaydet"
+        type="Accept" />
+      <Button width="150px" icon="sap-icon://sys-cancel" press="onCancelStopageButton" text="Kapat"
+        type="Reject" />
+    </buttons>
+  </Dialog>
+</core:FragmentDefinition>

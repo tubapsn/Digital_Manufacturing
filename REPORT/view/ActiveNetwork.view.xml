@@ -1,0 +1,116 @@
+<mvc:View controllerName="REPORT.controller.ActiveNetwork"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:t="sap.ui.table"
+  xmlns:viz="sap.viz.ui5.controls"
+  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+  xmlns:viz.data="sap.viz.ui5.data"
+  xmlns:tnt="sap.tnt" displayBlock="true" height="100%" busyIndicatorDelay="0">
+  <Page title="{i18n>title}" showHeader="false" class="sapUiContentPadding">
+    <content>
+     <VBox>
+      <HBox class="sapUiSmallMarginTop">
+           <Button text="GETİR" press="onShowPress" type="Emphasized" />
+        </HBox>
+
+        <t:Table class="sapUiSmallMarginTop" id="ActiveNetworkListTable"
+          selectionMode="Single"
+          enableCellFilter="{ui>/cellFilterOn}"
+          rows="{path: '/'}" visibleRowCount="10" rowsUpdated="oUpdate"
+          rowSelectionChange="onSelectionChange" >
+
+           <t:extension>
+            <OverflowToolbar style="Clear">
+              <Title id="titleNetwork" text="Aktif Ağ Planları" />
+              <ToolbarSpacer />
+              <Button  id= "ActiveNetworkListExcelButton" icon="sap-icon://excel-attachment"  text="Excele Aktar"  tooltip="Excele Aktar.." press="onExport"/>
+              <!--<Button/> -->
+            </OverflowToolbar>
+          </t:extension>
+           <t:columns>
+               <t:Column filterProperty="START_TIME" filterType="sap.ui.model.type.Date" width="11rem" sortProperty="START_TIME">
+              <Label text="BAŞLANGIÇ TARİHİİ" />
+              <t:template>
+                <Text text="{START_TIME}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="NETWORK" filterType="sap.ui.model.type.String" width="8rem" sortProperty="NETWORK">
+              <Label text="AĞ PLANI" />
+              <t:template>
+                <Text text="{NETWORK}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="OPERATION" width="7rem" filterType="sap.ui.model.type.String" sortProperty="OPERATION">
+              <Label text="OPERASYON" />
+              <t:template>
+                <Text text="{OPERATION}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="WORK_CENTER" width="7rem" filterType="sap.ui.model.type.String" sortProperty="WORK_CENTER">
+              <Label text="İŞ YERİ" />
+              <t:template>
+                <Text text="{WORK_CENTER}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="SUB_CATEGORY" width="6rem" filterType="sap.ui.model.type.String" sortProperty="SUB_CATEGORY">
+              <Label text="ALT KATEGORİ" wrapping="true" />
+              <t:template>
+                <Text text="{SUB_CATEGORY}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="SUB_CATEGORY_DESCRIPTION" width="7rem" filterType="sap.ui.model.type.String" sortProperty="SUB_CATEGORY_DESCRIPTION">
+              <Label text="ALT KATEGORİ AÇIKLAMASI" wrapping="true" />
+              <t:template>
+                <Text text="{SUB_CATEGORY_DESCRIPTION}" wrapping="true" />
+              </t:template>
+            </t:Column>
+           </t:columns>
+           <t:Column filterProperty="OPER_NO" width="7rem" filterType="sap.ui.model.type.Integer" sortProperty="OPER_NO">
+              <Label text="OPERATÖR NO" wrapping="true" />
+              <t:template>
+                <Text text="{OPER_NO}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="OPER_NAME" width="12rem" filterType="sap.ui.model.type.String" sortProperty="OPER_NAME" >
+              <Label text="OPERATÖR ADI" wrapping="true" />
+              <t:template>
+                <Text text="{OPER_NAME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+             <t:Column filterProperty="ACTIVITY_TIME" filterType="sap.ui.model.type.Integer" width="7rem" sortProperty="ACTIVITY_TIME">
+              <Label text="AKTİVİTE SÜRESİ(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{ACTIVITY_TIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="UNPLANNED_TIME" filterType="sap.ui.model.type.Integer" width="6rem" sortProperty="UNPLANNED_TIME">
+              <Label text="PLANSIZ DURUŞ(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{UNPLANNED_TIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="PLANNED_TIME" filterType="sap.ui.model.type.Integer" width="6rem" sortProperty="PLANNED_TIME">
+              <Label text="PLANLI DURUŞ(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{PLANNED_TIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+            <t:Column filterProperty="UPTIME" filterType="sap.ui.model.type.Integer" width="7rem" sortProperty="UPTIME" >
+              <Label text="NET ÇALIŞMA(dk)" wrapping="true" />
+              <t:template>
+                <Text text="{UPTIME}" wrapping="true" />
+              </t:template>
+            </t:Column>
+             <t:footer>
+            <OverflowToolbar id="infobar">
+              <Label text=" " labelFor="operationMode" />
+            </OverflowToolbar>
+          </t:footer>
+        </t:Table>
+     </VBox>
+    </content>
+  </Page>
+
+
+</mvc:View>

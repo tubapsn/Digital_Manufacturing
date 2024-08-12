@@ -1,0 +1,181 @@
+<mvc:View controllerName="REPORT.controller.ActiviteAdd"
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:mc="sap.suite.ui.microchart"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:card="sap.f.cards"
+  xmlns:tnt="sap.tnt"
+  xmlns:plugins="sap.ui.table.plugins"
+  xmlns:t="sap.ui.table" 
+  xmlns:l="sap.ui.layout"
+  height="100%">
+  <Page title="{i18n>title}" showHeader="false" class="sapUiContentPadding">
+    <content>
+      <VBox width="100%" class="sapUiTinyMargin">
+
+  <HBox width="100%">
+          <VBox height="142px" width="142px">
+            <HBox class="sapUiTinyMarginTop">
+              <Label text="Ağ Planı" labelFor="DP1" width="200px" />
+              <Label text="Operasyon" labelFor="DP2" width="200px" />
+              <Label text="Başlangıç Tarihi" labelFor="DP3" width="200px" />
+              <Label text="Bitiş Tarihi" labelFor="DP4" width="200px" />
+            </HBox>
+            <HBox>
+              <Input id="productInput" placeholder="Enter product" liveChange="productInputChange"  value="4010029" width="200px" />
+              <ComboBox  items="{path: '/'}" id="operationInput"  width="200px" >
+                <core:Item  key="{ACTIVITY}"
+                  text="{ACTIVITY}-{WORK_CNTR}" />
+              </ComboBox>
+             <!-- <Input id="operationInput" placeholder="Enter product" value="0020" width="200px" /> -->
+              <DatePicker id="StartDateStopage" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" width="200px" placeholder="Başlangıç Tarihi" change="handleChange" class="sapUiSmallMarginBottom" />
+              <DatePicker id="EndDateStopage" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" width="200px" placeholder="Bitiş Tarihi" change="handleChange" class="sapUiSmallMarginBottom" />
+
+              <Button text="GETİR" press="onShowPress" type="Emphasized" />
+            </HBox>
+
+          </VBox>
+        </HBox>
+
+     
+    
+        <Button text="AĞ PLANI EKLE" press="onAddNetwork" type="Emphasized" />
+       
+        <HBox width="1000px">
+          <t:Table class="sapUiTinyMarginTop" id="OperationListTable" selectionMode="Single" rows="{path: '/' }" visibleRowCount="7" rowsUpdated="oUpdate" rowSelectionChange="onSelectionChangeNetwork" width="100%">
+          <t:extension>
+            <OverflowToolbar style="Clear">
+              <Title id="title1" text="Ağ Planı Bilgileri" />
+              <ToolbarSpacer />
+                <Button  id= "OperationListExcelButton" icon="sap-icon://excel-attachment"  text="Excele Aktar"  tooltip="Excele Aktar.." press="onExport"/>
+            </OverflowToolbar>
+          </t:extension>
+          
+          <t:columns>
+              <t:Column filterProperty="START_TIME" filterType="sap.ui.model.type.Date" width="14rem" sortProperty="START_TIME">
+                <Label text="BAŞLANGIÇ TARİHİ" />
+                <t:template>
+                  <Text text="{START_TIME}" wrapping="false" />
+                </t:template>
+              </t:Column>
+              <t:Column filterProperty="END_TIME" filterType="sap.ui.model.type.Date" width="14rem" sortProperty="END_TIME">
+                <Label text="BİTİŞ TARİHİ" />
+                <t:template>
+                  <Text text="{END_TIME}" wrapping="false" />
+                </t:template>
+              </t:Column>
+              <t:Column filterProperty="NETWORK" width="8rem" sortProperty="NETWORK">
+                <Label text="AĞ PLANI" />
+                <t:template>
+                  <Text text="{NETWORK}" wrapping="false" />
+                </t:template>
+              </t:Column>
+              <t:Column filterProperty="OPERATION" width="7rem" sortProperty="OPERATION">
+                <Label text="OPERASYON" />
+                <t:template>
+                  <Text text="{OPERATION}" wrapping="false" />
+                </t:template>
+              </t:Column>
+              <t:Column filterProperty="WORK_CENTER" width="9rem" sortProperty="WORK_CENTER">
+                <Label text="İŞ YERİ" />
+                <t:template>
+                  <Text text="{WORK_CENTER}" wrapping="false" />
+                </t:template>
+              </t:Column>
+
+              <!-- <t:Column filterProperty="STATU" filterType="sap.ui.model.type.String" width="8rem">
+                <Label text="STATU" wrapping="true" />
+                <t:template>
+                  <Text text="{STATU}" wrapping="true" />
+                </t:template>
+              </t:Column> -->
+
+              <t:Column filterProperty="OPER_ID" filterType="sap.ui.model.type.Integer" width="8rem" sortProperty="OPER_ID">
+                <Label text="OPERATÖR NO" wrapping="true" />
+                <t:template>
+                  <Text text="{OPER_ID}" wrapping="true" />
+                </t:template>
+              </t:Column>
+
+               
+
+              <!-- <t:Column width="15rem">
+                <Label text="OPERATÖR ADI" wrapping="true" />
+                <t:template>
+                  <Text text="{OPER_NAME}" wrapping="true" />
+                </t:template>
+              </t:Column> -->
+
+            </t:columns>
+
+          </t:Table>
+         
+        </HBox>
+
+        <Button text="DURUŞ EKLE" press="onAddStopage" type="Emphasized" />
+
+        <HBox width="1000px">
+          
+          <t:Table class="sapUiSmallMarginTop" id="DetailListTable" selectionMode="Single"
+          rows="{path: '/'}" visibleRowCount="7" rowsUpdated="oUpdate">
+          <t:extension>
+            <OverflowToolbar style="Clear">
+              <Title id="title" text="Duruş Bilgileri" />
+              <ToolbarSpacer />
+              <Button  id= "DetailListExcelButton" text="Excele Aktar" icon="sap-icon://excel-attachment"  tooltip="Excele Aktar.." press="onExport"/>
+            </OverflowToolbar>
+          </t:extension>
+  
+          <t:columns>
+            <t:Column sortProperty="NETWORK">
+              <Label text="AĞ PLANI" />
+              <t:template>
+                <Text text="{NETWORK}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column sortProperty="OPERATION"> 
+              <Label text="OPERASYON" />
+              <t:template>
+                <Text text="{OPERATION}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column sortProperty="START_TIME">
+              <Label text="BAŞLANGIÇ TARİHİ" />
+              <t:template>
+                <Text text="{START_TIME}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column sortProperty="END_TIME">
+              <Label text="BİTİŞ TARİHİ" />
+              <t:template>
+                <Text text="{END_TIME}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column sortProperty="REASON">
+              <Label text="NEDEN" />
+              <t:template>
+                <Text text="{REASON}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column sortProperty="PLANNEDTEXT">
+              <Label text="TUR" />
+              <t:template>
+                <Text text="{PLANNEDTEXT}" wrapping="false" />
+              </t:template>
+            </t:Column>
+            <t:Column sortProperty="DIFF">
+              <Label text="SURE" />
+              <t:template>
+                <Text text="{DIFF}" wrapping="false" />
+              </t:template>
+            </t:Column>
+          </t:columns>
+        </t:Table>
+        </HBox>
+      </VBox>
+    </content>
+  </Page>
+
+
+</mvc:View>

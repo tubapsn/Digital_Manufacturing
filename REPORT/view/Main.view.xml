@@ -1,0 +1,88 @@
+<mvc:View
+  controllerName="REPORT.controller.Main"
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:mc="sap.suite.ui.microchart"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:grid="sap.ui.layout.cssgrid"
+  xmlns:plugins="sap.ui.table.plugins"
+  xmlns:t="sap.ui.table"
+  xmlns:viz="sap.viz.ui5.controls"
+  xmlns:layout="sap.ui.layout"
+  xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+  xmlns:viz.data="sap.viz.ui5.data"
+  xmlns:tnt="sap.tnt"
+  height="100%">
+  <tnt:ToolPage id="toolPage">
+    <tnt:header>
+      <tnt:ToolHeader>
+        <Button
+          id="sideNavigationToggleButton"
+          icon="sap-icon://menu2"
+          type="Transparent"
+          press=".onSideNavButtonPress">
+          <layoutData>
+            <OverflowToolbarLayoutData priority="NeverOverflow" />
+          </layoutData>
+        </Button>
+        <VBox class="sapUiSmallMargin">
+          <Image src="http://192.168.9.26:50000/XMII/CM/MII/IMAGES/LOGO/KH.PNG" width="100px" height="50px" />
+    
+    
+         </VBox>
+        <ToolbarSpacer width="20px" />
+        <!-- <Button text="File" type="Transparent">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="Low" />
+					</layoutData>
+				</Button> -->
+
+        <tnt:ToolHeaderUtilitySeparator />
+        <ToolbarSpacer>
+          <layoutData>
+            <OverflowToolbarLayoutData priority="NeverOverflow" minWidth="20px" />
+          </layoutData>
+        </ToolbarSpacer>
+
+      </tnt:ToolHeader>
+    </tnt:header>
+    <tnt:sideContent>
+      <tnt:SideNavigation
+        expanded="true"
+        selectedKey="{/selectedKey}"
+        itemSelect=".onItemSelect">
+        <tnt:NavigationList items="{path: '/navigation'}">
+          <tnt:NavigationListItem
+            text="{title}"
+            icon="{icon}"
+            enabled="{enabled}"
+            expanded="{expanded}"
+            items="{items}"
+            key="{key}">
+            <tnt:NavigationListItem
+              text="{title}"
+              key="{key}"
+              enabled="{enabled}" />
+          </tnt:NavigationListItem>
+        </tnt:NavigationList>
+        <tnt:fixedItem>
+          <tnt:NavigationList items="{path: '/fixedNavigation'}">
+            <tnt:NavigationListItem text="{title}" icon="{icon}" />
+          </tnt:NavigationList>
+        </tnt:fixedItem>
+      </tnt:SideNavigation>
+    </tnt:sideContent>
+    <tnt:mainContents>
+      <NavContainer id="pageContainer" initialPage="page1">
+        <pages>
+          
+          <mvc:XMLView id="page1" viewName="REPORT.view.Activite"></mvc:XMLView>
+          <mvc:XMLView id="page2" viewName="REPORT.view.ActiviteAdd"></mvc:XMLView>
+          <mvc:XMLView id="page3" viewName="REPORT.view.Stopage"></mvc:XMLView>
+          <mvc:XMLView id="page4" viewName="REPORT.view.ActiveNetwork"></mvc:XMLView>
+        </pages>
+      </NavContainer>
+    </tnt:mainContents>
+  </tnt:ToolPage>
+</mvc:View>

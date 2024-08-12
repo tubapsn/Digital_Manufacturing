@@ -1,0 +1,64 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form"
+  xmlns:t="sap.ui.table"  xmlns:l="sap.ui.layout" xmlns:tnt="sap.tnt">
+  <Dialog state="Warning" id="fragmentNetworkAdd" title="Ağ Planı Ekleme"
+    draggable="true" contentWidth="50%">
+
+    <VBox class="sapUiTinyMargin">
+
+      <VBox height="400px" width="450px" class="sapUiTinyMarginBegin">
+        <HBox>
+          <Input id="AL1" placeholder="Ağ Planı" value="4010029"  liveChange="AL1LiveChange" width="200px" />
+
+        </HBox>
+        <HBox>
+          <l:VerticalLayout>
+            <ComboBox  items="{path: '/'}" id="AL2" selectionChange="al2LiveChange" >
+              <core:Item  key="{ACTIVITY}"
+                text="{ACTIVITY}-{WORK_CNTR}" />
+                
+            </ComboBox>
+            <Label text="Operasyon" labelFor="idComboBoxOpr" />
+          </l:VerticalLayout>
+
+        </HBox>
+        <HBox>
+
+
+          <l:VerticalLayout>
+            <ComboBox items="{path: '/'}" id="AL3">
+              <core:Item key="{SUB_CATEGORY}-{WORK_CENTER}"
+                text="{SUB_CATEGORY}-{DESCRIPTION}" />
+            </ComboBox>
+            <Label text="Alt Kategori" labelFor="idComboBox" />
+          </l:VerticalLayout>
+        </HBox>
+        <HBox>
+          <Input id="AL4" placeholder="Operator" width="200px" />
+
+        </HBox>
+        <HBox>
+          <DateTimePicker id="AL5" valueFormat="yyyy-MM-dd HH:mm"
+            displayFormat="yyyy-MM-dd HH:mm" width="200px" placeholder="Başlangıç Tarihi"
+            change="handleChange" class="sapUiSmallMarginBottom" />
+        </HBox>
+        <HBox>
+          <DateTimePicker id="AL6" valueFormat="yyyy-MM-dd HH:mm"
+            displayFormat="yyyy-MM-dd HH:mm" width="200px" placeholder="Bitiş Tarihi"
+            change="handleChange" class="sapUiSmallMarginBottom" />
+        </HBox>
+        <HBox>
+          <tnt:InfoLabel text="ID: " renderMode="Narrow" colorScheme="5" />
+          <Text text="{networkInfo>/ID}" width="100%" />
+        </HBox>
+        
+      </VBox>
+
+    </VBox>
+    <buttons>
+      <Button width="150px" icon="sap-icon://sys-enter" press="addNetwork" text="Kaydet"
+        type="Accept" />
+      <Button width="150px" icon="sap-icon://sys-cancel" press="onCancelNetworkButton" text="Kapat"
+        type="Reject" />
+    </buttons>
+  </Dialog>
+</core:FragmentDefinition>

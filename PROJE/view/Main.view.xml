@@ -1,0 +1,200 @@
+<mvc:View xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:mc="sap.suite.ui.microchart"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:card="sap.f.cards"
+  xmlns:tnt="sap.tnt"
+  xmlns:plugins="sap.ui.table.plugins"
+  xmlns:t="sap.ui.table" height="100%" controllerName="PROJE.controller.Main">
+  <App id="idMainApp">
+    <pages>
+      <Page title="{i18n>title}" showHeader="false">
+        <content>
+          <VBox width="100%" class="sapUiSmallMargin">
+          
+          <Image src="http://192.168.9.26:50000/XMII/CM/MII/IMAGES/LOGO/KH_Logo.PNG" width="10%" height="5%"  />
+         
+            <HBox width="100%" height="30%">
+           
+             
+             
+              <f:Card class="sapUiMediumMargin">
+                <f:header>
+                  <card:Header title="Ağ Planı Numarası Girin"
+                    iconSrc="sap-icon://bus-public-transport" />
+                </f:header>
+                <f:content>
+                  <VBox width="100%" height="110px" class="sapUiSmallMargin"
+                    justifyContent="SpaceBetween">
+                    <VBox>
+                      <Label text="Ağ Plan No:" labelFor="productInput" />
+                      <Input id="productInput" placeholder="Enter product" value="4010029" />
+                      <Button text="GETİR" press=".onShowPress" type="Emphasized" />
+                    </VBox>
+                  </VBox>
+                </f:content>
+              </f:Card>
+              <f:Card class="sapUiMediumMargin">
+                <f:header>
+                  <card:Header title="Ağ Planı Bilgileri  "
+                    iconSrc="sap-icon://bus-public-transport" />
+                </f:header>
+                <f:content>
+                  <VBox height="142px" width="100%">
+                    <HBox>
+                      <tnt:InfoLabel text="Açıklama: " renderMode="Narrow" colorScheme="5" />
+                      <Text text="{networkInfo>/SHORT_TEXT}" width="100%" />
+                    </HBox>
+                    <HBox>
+                      <tnt:InfoLabel text="PYP Öğesi: " renderMode="Narrow" colorScheme="5" />
+                      <Text text="{networkInfo>/WBS_ELEMENT}" width="100%" />
+                    </HBox>
+                    <HBox>
+                      <tnt:InfoLabel text="Proje Tanımı: " renderMode="Narrow" colorScheme="5" />
+                      <Text text="{networkInfo>/PROJECT_DEFINITION}" width="100%" />
+                    </HBox>
+                    <HBox>
+                      <tnt:InfoLabel text="Planlanan Başlangıç Tarihi: " renderMode="Narrow"
+                        colorScheme="5" />
+                      <Text text="{networkInfo>/SCHED_START_DATE}" width="100%" />
+                    </HBox>
+                    <HBox>
+                      <tnt:InfoLabel text="Planlanan Bitiş Tarihi: " renderMode="Narrow"
+                        colorScheme="5" />
+                      <Text text="{networkInfo>/SCHED_FINISH_DATE}" width="100%" />
+                    </HBox>
+                  </VBox>
+                </f:content>
+              </f:Card>
+              <f:Card class="sapUiMediumMargin">
+                <f:header>
+                  <card:Header title="Ağ Planı Aktif Çalışan Bilgileri  "
+                    iconSrc="sap-icon://bus-public-transport" />
+                </f:header>
+                <f:content>
+                  <VBox height="142px" width="550px">
+                    <t:Table id="OperationInfoTable" rows="{path: '/'}" selectionMode="Single"
+                      visibleRowCount="3" 
+                      rowSelectionChange="onSelectionChange"
+                      
+                       >
+                      
+                      <t:columns width="100%" >
+                        <t:Column width="22%">
+                          <Label text="OPERASYON" />
+                          <t:template>
+                            <Text text="{OPERATION}" wrapping="false" />
+                          </t:template>
+                        </t:Column>
+                        <t:Column width="12%">
+                          <Label text="SİCİL" />
+                          <t:template>
+                            <Text text="{OPERATOR}" />
+                          </t:template>
+                        </t:Column>
+                        <t:Column width="36%">
+                          <Label text="İSİM" />
+                          <t:template>
+                            <Text text="{SNAME}" />
+                          </t:template>
+                        </t:Column>
+                        <t:Column width="30%">
+                          <Label text="GİRİŞ ZAMANI" />
+                          <t:template>
+                            <Text text="{START_TIME}" />
+                          </t:template>
+                        </t:Column>
+                      </t:columns>
+                    </t:Table>
+                  </VBox>
+                </f:content>
+              </f:Card>
+              <f:Card class="sapUiMediumMargin">
+                <f:header>
+                  <card:Header title="Kullanılabilirlik Durumu" iconSrc="sap-icon://bus-public-transport" />
+                </f:header>
+                <f:content>
+                  <HBox height="142px">
+                    <mc:RadialMicroChart  size="M" percentage="45" press="press"
+                      class="sapUiSmallMargin" id="avalibityRadialChart"></mc:RadialMicroChart>
+                  </HBox>
+                </f:content>
+              </f:Card>
+
+            </HBox>
+            <VBox height="60%">
+              <t:Table class="sapUiMediumMargin" id="OperationListTable" selectionMode="Single"
+                rows="{path: '/' }" visibleRowCount="8" rowsUpdated="oUpdate" rowSelectionChange="getData">
+                <t:columns>
+                  <t:Column>
+                    <Label text="OPERASYON" />
+                    <t:template>
+                      <Text text="{ACTIVITY}" wrapping="true" />
+                    </t:template>
+                  </t:Column>
+
+                  <t:Column>
+                    <Label text="İŞ YERİ" />
+                    <t:template>
+                      <Text text="{WORK_CNTR}" wrapping="false" />
+                    </t:template>
+                  </t:Column>
+
+
+                  <t:Column>
+                    <Label text="AÇIKLAMA" />
+                    <t:template>
+                      <Text text="{DESCRIPTION}" wrapping="true" />
+                    </t:template>
+                  </t:Column>
+
+
+                  <t:Column>
+                    <Label text="ALT KATEGORİ" />
+                    <t:template>
+                      <ComboBox items="{path: 'TEMP>/'}" >
+                        <core:Item key="{TEMP>SUB_CATEGORY}{TEMP>WORK_CENTER}"
+                          text="{TEMP>SUB_CATEGORY}-{TEMP>DESCRIPTION}" />
+                      </ComboBox>
+                    </t:template>
+                  </t:Column>
+
+                  <t:Column>
+                    <Label text="STATU" />
+                    <t:template>
+                      <Text text="{STATUS}" wrapping="true" />
+                    </t:template>
+                  </t:Column>
+
+
+                  <t:Column width="9rem">
+                    <t:template>
+                      <Button text="BAŞLAT" press="onStart" icon="sap-icon://begin" />
+                    </t:template>
+                  </t:Column>
+
+                  <t:Column width="9rem">
+                    <t:template>
+                      <Button text="BITIR" press="onStop" icon="sap-icon://stop" />
+                    </t:template>
+                  </t:Column>
+
+                  <t:Column width="9rem">
+                    <t:template>
+                      <Button text="DURUŞ GİR" press="onPause" icon="sap-icon://pause" />
+                    </t:template>
+                  </t:Column>
+
+
+                </t:columns>
+
+              </t:Table>
+            </VBox>
+            <!--<Image src="http://192.168.9.26:50000/XMII/CM/MII/IMAGES/LOGO/MII_Logo.PNG" width="10%" height="5%"  />*/-->
+          </VBox>
+        </content>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

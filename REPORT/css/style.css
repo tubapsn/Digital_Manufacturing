@@ -1,0 +1,80 @@
+/* Enter your custom styles here */
+
+.xsmallText{
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+.smallText{
+    font-size: 30px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.mediumText{
+    font-size: 38px;
+    color: #fff;
+}
+.largeText{
+    font-size: 40px;
+    color: #fff;
+}
+.xlargeText{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+
+.sapMFlexItem {
+  
+   padding-right: 0.2%;
+   padding-top: 0.2%;
+}
+
+
+.sapMPIText 
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.colorRed 
+{
+  color: #b00;
+}
+.colorGreen 
+{
+  color: #8bc34a;
+}
+.colorYellow 
+{
+  color: #ffeb3b;
+}
+.colorWhite 
+{
+  color: #fafafa;
+}
+.colorBlue
+{
+  color: #0070b1;
+}
+
+
+.footercss
+{
+  padding-bottom: 55%;
+}
+
+
+.sapSuiteRMC.sapSuiteRMCLookL .sapSuiteRMCFont {
+    font-size: 2.50rem !important; 
+    font-weight: bold;
+}
+.sapSuiteRMC .sapSuiteRMCVerticalAlignmentContainer {    
+    max-height: 9.1rem !important;   
+}
+.sapSuiteRMCInnerContainer {
+    width: 158px;
+}
+//sap.ui.getCore().byId("__component0---View1--chartShift-__list0-0").setValueColor("Error")
