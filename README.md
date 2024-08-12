@@ -3,4 +3,4 @@
 
 Merhabalar 
 
-X şireketi için yazılmış mes programıdır. 
+Seri üretim yapmayan X şireketi için yazılmış mes programıdır. 
